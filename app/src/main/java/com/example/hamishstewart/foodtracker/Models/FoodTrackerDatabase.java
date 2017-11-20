@@ -17,6 +17,7 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_LUNCH = MealType.LUNCH.name();
     public static final String COLUMN_DINNER = MealType.DINNER.name();
     public static final String COLUMN_SNACK = MealType.SNACK.name();
+    public static final String COLUMN_DATE = "DATE";
 
     public FoodTrackerDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,7 +31,8 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
                 + COLUMN_BREAKFAST + " VARCHAR, "
                 + COLUMN_LUNCH + " VARCHAR, "
                 + COLUMN_DINNER + " VARCHAR, "
-                + COLUMN_SNACK + " VARCHAR,);");
+                + COLUMN_SNACK + " VARCHAR, "
+                + COLUMN_DATE + " VARCHAR );");
     }
 
     @Override

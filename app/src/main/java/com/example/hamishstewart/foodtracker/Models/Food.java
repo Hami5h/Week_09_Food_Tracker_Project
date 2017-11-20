@@ -7,10 +7,13 @@ package com.example.hamishstewart.foodtracker.Models;
 public class Food {
     private int id;
     private MealType meal;
+    private String date;
 
-    public Food(int id, MealType meal) {
+
+    public Food(int id, MealType meal, String date) {
         this.id = id;
         this.meal = meal;
+        this.date = date;
     }
 
     public MealType getMealType() {
