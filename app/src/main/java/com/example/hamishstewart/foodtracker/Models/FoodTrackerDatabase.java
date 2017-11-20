@@ -15,6 +15,7 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "FOOD";
     public static final String COLUMN_ID = "ID";
     public static final String COLUMN_MEAL_TYPE = "MealType";
+    public static final String COLUMN_FOOD_EATEN = "FoodEaten";
     public static final String COLUMN_DATE = "DATE";
 
     public FoodTrackerDatabase(Context context) {
@@ -27,6 +28,7 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
         db.execSQL("create table " + TABLE_NAME + " ( "
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_MEAL_TYPE + " VARCHAR, "
+                + COLUMN_FOOD_EATEN + " VARCHAR, "
                 + COLUMN_DATE + " VARCHAR );");
     }
 
