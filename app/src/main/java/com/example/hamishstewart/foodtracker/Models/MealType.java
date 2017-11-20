@@ -5,8 +5,18 @@ package com.example.hamishstewart.foodtracker.Models;
  */
 
 public enum MealType {
-    BREAKFAST,
-    LUNCH,
-    DINNER,
-    SNACK
+    BREAKFAST ("Breakfast"),
+    LUNCH ("Lunch"),
+    DINNER ("Dinner"),
+    SNACK ("Snack");
+
+    private final String meal;
+
+    MealType(String meal) {
+        this.meal = meal;
+    }
+
+    public String getMeal() {
+        return this.meal;
+    }
 }

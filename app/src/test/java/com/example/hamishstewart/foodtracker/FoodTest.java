@@ -16,15 +16,22 @@ import static org.junit.Assert.assertNotNull;
 public class FoodTest {
 
     Food food;
+    MealType mealType;
 
     @Before
     public void before() {
         food = new Food(1, MealType.BREAKFAST, "20/11/2017");
+        mealType = MealType.BREAKFAST;
     }
 
     @Test
-    public void canGetMealType() {
+    public void canGetMealTypeFromFood() {
         assertEquals(MealType.BREAKFAST, food.getMealType());
+    }
+
+    @Test
+    public void canGetMealTypeFromEnum() {
+        assertEquals("Breakfast", mealType.getMeal());
     }
 
     @Test

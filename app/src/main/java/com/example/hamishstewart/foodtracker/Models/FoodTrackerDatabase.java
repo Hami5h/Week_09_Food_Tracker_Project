@@ -14,10 +14,7 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "FoodTracker.db";
     public static final String TABLE_NAME = "FOOD";
     public static final String COLUMN_ID = "ID";
-    public static final String COLUMN_BREAKFAST = MealType.BREAKFAST.name();
-    public static final String COLUMN_LUNCH = MealType.LUNCH.name();
-    public static final String COLUMN_DINNER = MealType.DINNER.name();
-    public static final String COLUMN_SNACK = MealType.SNACK.name();
+    public static final String COLUMN_MEAL_TYPE = "MealType";
     public static final String COLUMN_DATE = "DATE";
 
     public FoodTrackerDatabase(Context context) {
@@ -29,10 +26,7 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + " ( "
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_BREAKFAST + " VARCHAR, "
-                + COLUMN_LUNCH + " VARCHAR, "
-                + COLUMN_DINNER + " VARCHAR, "
-                + COLUMN_SNACK + " VARCHAR, "
+                + COLUMN_MEAL_TYPE + " VARCHAR, "
                 + COLUMN_DATE + " VARCHAR );");
     }
 
@@ -43,14 +37,11 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData(MealType meal, String date) {
+    public void insertData(String meal, String date) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_BREAKFAST, MealType.BREAKFAST.name());
-        contentValues.put(COLUMN_LUNCH, MealType.LUNCH.name());
-        contentValues.put(COLUMN_DINNER, MealType.DINNER.name());
-        contentValues.put(COLUMN_SNACK, MealType.SNACK.name());
-        contentValues.put(COLUMN_DATE, date );
+        contentValues.put(COLUMN_MEAL_TYPE, meal);
+        contentValues.put(COLUMN_DATE, date);
         db.insert(TABLE_NAME, null, contentValues);
     }
 }
