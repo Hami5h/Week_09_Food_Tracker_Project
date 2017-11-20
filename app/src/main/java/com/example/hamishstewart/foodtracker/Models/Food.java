@@ -5,4 +5,15 @@ package com.example.hamishstewart.foodtracker.Models;
  */
 
 public class Food {
+    private int id;
+    private MealType meal;
+
+    public Food(int id, MealType meal) {
+        this.id = id;
+        this.meal = meal;
+    }
+
+    public MealType getMealType() {
+        return this.meal;
+    }
 }
