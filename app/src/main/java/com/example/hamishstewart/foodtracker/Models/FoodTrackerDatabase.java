@@ -1,5 +1,6 @@
 package com.example.hamishstewart.foodtracker.Models;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -40,5 +41,16 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
 
+    }
+
+    public boolean insertData(MealType meal, String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_BREAKFAST, MealType.BREAKFAST.name());
+        contentValues.put(COLUMN_LUNCH, MealType.LUNCH.name());
+        contentValues.put(COLUMN_DINNER, MealType.DINNER.name());
+        contentValues.put(COLUMN_SNACK, MealType.SNACK.name());
+        contentValues.put(COLUMN_DATE, date );
+        db.insert(TABLE_NAME, null, contentValues);
     }
 }
