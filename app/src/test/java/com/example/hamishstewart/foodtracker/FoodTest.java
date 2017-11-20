@@ -20,7 +20,7 @@ public class FoodTest {
 
     @Before
     public void before() {
-        food = new Food(1, MealType.BREAKFAST, "20/11/2017");
+        food = new Food(1, MealType.BREAKFAST, "Cornflakes", "20/11/2017");
         mealType = MealType.BREAKFAST;
     }
 
@@ -32,6 +32,11 @@ public class FoodTest {
     @Test
     public void canGetMealTypeFromEnum() {
         assertEquals("Breakfast", mealType.getMeal());
+    }
+
+    @Test
+    public void canGetEaten() {
+        assertEquals("Cornflakes", food.getEaten());
     }
 
     @Test

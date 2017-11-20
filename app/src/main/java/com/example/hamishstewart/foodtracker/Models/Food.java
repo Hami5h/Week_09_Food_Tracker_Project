@@ -7,21 +7,27 @@ package com.example.hamishstewart.foodtracker.Models;
 public class Food {
     private int id;
     private MealType meal;
+    private String eaten;
     private String date;
 
 
-    public Food(int id, MealType meal, String date) {
+    public Food(int id, MealType meal, String eaten, String date) {
         this.id = id;
         this.meal = meal;
+        this.eaten = eaten;
         this.date = date;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     public MealType getMealType() {
         return this.meal;
     }
 
-    public int getId() {
-        return this.id;
+    public String getEaten() {
+        return this.eaten;
     }
 
     public String getDate() {
@@ -39,4 +45,6 @@ public class Food {
     public void setDate(String date) {
         this.date = date;
     }
+
+
 }
