@@ -29,7 +29,7 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_MEAL_TYPE + " VARCHAR, "
                 + COLUMN_FOOD_EATEN + " VARCHAR, "
-                + COLUMN_DATE + " VARCHAR );");
+                + COLUMN_DATE + " TEXT );");
     }
 
     @Override
@@ -38,11 +38,29 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertData(String meal, String date) {
+    public void insertData(MealType meal, String eaten, String date) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_MEAL_TYPE, meal);
+        contentValues.put(COLUMN_MEAL_TYPE, meal.getMeal());
+        contentValues.put(COLUMN_FOOD_EATEN, eaten);
         contentValues.put(COLUMN_DATE, date);
         db.insert(TABLE_NAME, null, contentValues);
+        db.close();
+    }
+
+    public void updateData(String id, MealType meal, String eaten, String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_MEAL_TYPE, meal.getMeal());
+        contentValues.put(COLUMN_FOOD_EATEN, eaten);
+        contentValues.put(COLUMN_DATE, date);
+        db.update(TABLE_NAME, contentValues, COLUMN_ID + " = ?", new String[] {id});
+        db.close();
+    }
+
+    public void deleteData(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, COLUMN_ID + " = ?",new String[] {id});
+        db.close();
     }
 }

@@ -38,6 +38,10 @@ public class Food {
         this.meal = meal;
     }
 
+    public void setEaten(String eaten) {
+        this.eaten = eaten;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
