@@ -35,6 +35,11 @@ public class FoodTest {
     }
 
     @Test
+    public void canGetEnumFromMealType() {
+        assertEquals(MealType.BREAKFAST, MealType.convertToMealType("Breakfast"));
+    }
+
+    @Test
     public void canGetEaten() {
         assertEquals("Cornflakes", food.getEaten());
     }

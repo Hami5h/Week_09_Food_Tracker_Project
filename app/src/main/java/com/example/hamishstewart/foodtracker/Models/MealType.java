@@ -19,4 +19,25 @@ public enum MealType {
     public String getMeal() {
         return this.meal;
     }
+
+    public static MealType convertToMealType(String meal) {
+        switch(meal) {
+            case "Breakfast":
+                return BREAKFAST;
+
+            case "Lunch":
+                return LUNCH;
+
+            case "Dinner":
+                return DINNER;
+
+            case "Snack":
+                return SNACK;
+
+            default:
+                return null;
+
+        }
+
+    }
 }

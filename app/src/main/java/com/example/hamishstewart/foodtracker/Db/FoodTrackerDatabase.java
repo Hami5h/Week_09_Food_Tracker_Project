@@ -1,9 +1,15 @@
-package com.example.hamishstewart.foodtracker.Models;
+package com.example.hamishstewart.foodtracker.Db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.hamishstewart.foodtracker.Models.Food;
+import com.example.hamishstewart.foodtracker.Models.MealType;
+
+import java.util.ArrayList;
 
 /**
  * Created by hamishstewart on 20/11/2017.
@@ -62,5 +68,30 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, COLUMN_ID + " = ?",new String[] {id});
         db.close();
+    }
+
+    public ArrayList<Food> getAllRecords() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
+        ArrayList<Food> foods = new ArrayList<Food>();
+        Food food;
+        if (cursor.getCount() > 0) {
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                int id = cursor.getInt(0);
+
+                String meal = cursor.getString(1);
+                MealType mealType = MealType.convertToMealType(meal);
+
+                String eaten = cursor.getString(2);
+                String date = cursor.getString(3);
+
+                food = new Food(id, mealType, eaten, date );
+                foods.add(food);
+            }
+        }
+        cursor.close();
+        db.close();
+        return foods;
     }
 }
