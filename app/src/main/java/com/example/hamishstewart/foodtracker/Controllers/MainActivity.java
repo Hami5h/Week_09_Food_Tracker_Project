@@ -1,5 +1,6 @@
 package com.example.hamishstewart.foodtracker.Controllers;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,14 +34,13 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(foodAdapter);
     }
 
-    public void getFood(View listItemSelected) {
-        Food selectedFood = (Food) listItemSelected.getTag();
-
-//        Toast.makeText(this,
-//                selectedFood.getMealType(),
-//                Toast.LENGTH_SHORT).show();
+    public void onClickFoodType(View textView) {
+        Intent intent = new Intent(this, EditActivity.class);
+        startActivity(intent);
 
     }
+
+
 
 
 }
