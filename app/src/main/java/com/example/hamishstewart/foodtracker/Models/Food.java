@@ -7,20 +7,20 @@ import java.io.Serializable;
  */
 
 public class Food implements Serializable {
-    private int id;
+    private Integer id;
     private MealType meal;
     private String eaten;
     private String date;
 
 
-    public Food(int id, MealType meal, String eaten, String date) {
+    public Food(Integer id, MealType meal, String eaten, String date) {
         this.id = id;
         this.meal = meal;
         this.eaten = eaten;
         this.date = date;
     }
 
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
 

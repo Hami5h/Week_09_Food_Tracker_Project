@@ -20,6 +20,7 @@ public class EditActivity extends AppCompatActivity {
     private EditText updateMeal, updateFood, updateDate;
     private Button saveUpdateButton;
     private Button deleteButton;
+    private String foodID;
     Spinner editMealDropdown;
     FoodTrackerDatabase myDb;
 
@@ -49,6 +50,7 @@ public class EditActivity extends AppCompatActivity {
 
         this.updateFood.setText(food.getEaten());
         this.updateDate.setText(food.getDate());
+        foodID = food.getId().toString();
 
         this.editMealDropdown.setSelection(0);
 
@@ -59,16 +61,13 @@ public class EditActivity extends AppCompatActivity {
         String food = this.updateFood.getText().toString();
         String date = this.updateDate.getText().toString();
 
-        myDb.updateData(MealType.convertToMealType(meal), food, date);
+        myDb.updateData(foodID, MealType.convertToMealType(meal), food, date);
         finish();
     }
 
-    public void onDeleteButtonClicked(View button) {
-        String meal = (String) this.editMealDropdown.getSelectedItem();
-        String food = this.updateFood.getText().toString();
-        String date = this.updateDate.getText().toString();
 
-        myDb.deleteData();
+    public void onDeleteButtonClicked(View button) {
+        myDb.deleteData(foodID);
         finish();
     }
 
