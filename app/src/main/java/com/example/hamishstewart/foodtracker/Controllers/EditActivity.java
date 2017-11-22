@@ -51,8 +51,18 @@ public class EditActivity extends AppCompatActivity {
         this.updateFood.setText(food.getEaten());
         this.updateDate.setText(food.getDate());
         foodID = food.getId().toString();
+        String mealType = food.getMealType().getMeal();
 
-        this.editMealDropdown.setSelection(0);
+        for(int i = 0; i < items.length; i++) {
+            if(items[i].equals(mealType)) {
+                this.editMealDropdown.setSelection(i);
+                break;
+            }
+        }
+            //the above for loop will loop through items array
+            //if the item equals my saved food meal type
+            //then that id is the id of the selection which
+            //will be used to populate the correct item on the spinner
 
     }
 
