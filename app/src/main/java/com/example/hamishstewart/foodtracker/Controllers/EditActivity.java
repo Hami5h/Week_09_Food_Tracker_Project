@@ -57,7 +57,7 @@ public class EditActivity extends AppCompatActivity {
 
         this.updateFood.setText(food.getEaten());
         this.updateDate.setText(food.getDate());
-        foodID = food.getId().toString();
+        foodID = String.valueOf(food.getId());
         String mealType = food.getMealType().getMeal();
 
         for(int i = 0; i < items.length; i++) {
