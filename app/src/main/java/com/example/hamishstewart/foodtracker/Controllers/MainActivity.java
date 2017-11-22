@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myDb = new FoodTrackerDatabase(this);
-
-
     }
 
     @Override
@@ -40,10 +38,11 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(foodAdapter);
     }
 
-    public void onClickFoodType(View textView) {
+    public void onClickFoodType(View listitemView) {
+        Food food = (Food) listitemView.getTag();
         Intent intent = new Intent(this, EditActivity.class);
+        intent.putExtra("Food", food);
         startActivity(intent);
-
     }
 
     public void onAddButtonClick(View view) {

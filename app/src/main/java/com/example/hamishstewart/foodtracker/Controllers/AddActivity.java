@@ -1,7 +1,5 @@
 package com.example.hamishstewart.foodtracker.Controllers;
 
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +31,7 @@ public class AddActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         mealTypeDropdown.setAdapter(adapter);
 
-        this.mealtype = (TextView) findViewById(R.id.mealtype);
+        this.mealtype = (TextView) findViewById(R.id.Mealtype);
         this.foodEaten = (TextView)findViewById(R.id.foodEaten);
         this.dateEaten = (TextView) findViewById(R.id.dateEaten);
         this.editFood = (EditText) findViewById(R.id.editFood);

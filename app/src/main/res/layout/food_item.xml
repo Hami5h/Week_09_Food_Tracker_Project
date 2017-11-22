@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="onClickFoodType"
     tools:layout_editor_absoluteY="81dp">
 
     <android.support.constraint.Guideline
@@ -40,8 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:onClick="onClickFoodType"
+        android:clickable="false"
         android:text="TextView"
         android:textAlignment="viewStart"
         android:textColor="@color/colorPrimary"
