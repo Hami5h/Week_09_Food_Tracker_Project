@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
         myDb = new FoodTrackerDatabase(this);
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         ArrayList<Food> food = myDb.getAllRecords();
 
         FoodListAdapter foodAdapter = new FoodListAdapter(this, food);
