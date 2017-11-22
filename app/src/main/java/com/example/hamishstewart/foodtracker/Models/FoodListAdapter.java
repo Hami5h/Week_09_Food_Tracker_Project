@@ -29,7 +29,7 @@ public class FoodListAdapter extends ArrayAdapter<Food> {
         Food currentFoodItem = getItem(position);
 
         TextView type = listItemView.findViewById(R.id.Type);
-        type.setText(currentFoodItem.getMealType().toString());
+        type.setText(currentFoodItem.getMealType().getMeal());
 
         TextView eaten = listItemView.findViewById(R.id.Eaten);
         eaten.setText(currentFoodItem.getEaten().toString());
