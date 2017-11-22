@@ -1,11 +1,13 @@
 package com.example.hamishstewart.foodtracker.Controllers;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,6 +17,10 @@ import com.example.hamishstewart.foodtracker.Models.Food;
 import com.example.hamishstewart.foodtracker.Models.MealType;
 import com.example.hamishstewart.foodtracker.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class EditActivity extends AppCompatActivity {
     private TextView eMealtype, eFoodEaten, eDateEaten;
     private EditText updateMeal, updateFood, updateDate;
@@ -23,6 +29,7 @@ public class EditActivity extends AppCompatActivity {
     private String foodID;
     Spinner editMealDropdown;
     FoodTrackerDatabase myDb;
+    Calendar myCalendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +86,31 @@ public class EditActivity extends AppCompatActivity {
     public void onDeleteButtonClicked(View button) {
         myDb.deleteData(foodID);
         finish();
+    }
+
+    DatePickerDialog.OnDateSetListener
+            date = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updatelabel();
+        }
+    };
+
+    public void updatelabel() {
+        String myFormat = "dd/MM/yyyy";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.UK);
+        updateDate.setText(dateFormat.format(myCalendar.getTime()));
+    }
+
+    public void onDateClicked(View editText) {
+        new DatePickerDialog(EditActivity.this, date,
+                myCalendar.get(Calendar.YEAR),
+                myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
 

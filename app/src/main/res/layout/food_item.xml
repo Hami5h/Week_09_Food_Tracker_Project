@@ -58,7 +58,9 @@
         android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAlignment="viewStart"
+        android:textColor="@color/colorPrimary"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="parent" />
@@ -72,7 +74,9 @@
         android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAlignment="viewEnd"
+        android:textColor="@color/colorPrimary"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="parent" />
