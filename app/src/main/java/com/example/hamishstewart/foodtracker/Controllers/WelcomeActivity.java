@@ -22,6 +22,7 @@ public class WelcomeActivity extends AppCompatActivity {
     public void onILoveFoddButtonClicked(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }
