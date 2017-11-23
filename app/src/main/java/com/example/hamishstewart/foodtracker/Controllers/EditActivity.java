@@ -42,12 +42,13 @@ public class EditActivity extends AppCompatActivity {
         this.eMealtype = (TextView) findViewById(R.id.eMealtype);
         this.eFoodEaten = (TextView)findViewById(R.id.eFoodEaten);
         this.eDateEaten = (TextView) findViewById(R.id.eDateEaten);
+        this.eCaloriesEaten = (TextView) findViewById(R.id.editCalories);
         this.updateFood = (EditText) findViewById(R.id.updateFood);
         this.updateDate = (EditText) findViewById(R.id.updateDate);
         this.updateCalories= (EditText) findViewById(R.id.updateCalories);
 
         this.editMealDropdown = findViewById(R.id.updateMealSpinner);
-        String[] items = new String[]{"Breakfast", "Lunch", "Dinner", "Snack"};
+        String[] items = new String[]{"Breakfast", "Lunch", "Dinner", "Snack",};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         editMealDropdown.setAdapter(adapter);
 
@@ -58,6 +59,7 @@ public class EditActivity extends AppCompatActivity {
 
         this.updateFood.setText(food.getEaten());
         this.updateDate.setText(food.getDate());
+        this.updateCalories.setText(food.getCalories());
         foodID = String.valueOf(food.getId());
         String mealType = food.getMealType().getMeal();
 

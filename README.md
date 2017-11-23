@@ -40,6 +40,7 @@ Eventually, the set-up of the database with all CRUD functions was completed, an
 I decided that the App should use a list view, which is something we had been shown how to use previously. I encountered an issue where my app was not displaying any information from my database, although information was being saved. With some help from the instructors I managed to make some corrections in the code for the Array Adapter, and everything was fine. I did start going down the route of using a Cursor Adapter instead, but found that this would not provide any meaningful advantage.
 In my list view I wanted it set up so that when a user selected a specific row it would redirect them to an 'edit' screen where they could delete the item, or perform updates. This was trickier than I thought, since I wanted the fields to be auto-populated with the data from the selected item, and I had included a spinner for the meal type. Again, I received some help on this, and once done I managed to meet the MVP.
 Following MVP I then added some bells & whistles including a Calendar for selecting the date and a welcome screen.
+I also found time to add Calorie count and adjust the app to suit.
 
 
 ##Setting up
@@ -57,4 +58,4 @@ The MVP was achieved, with basic functionality. I therefore achieved what I set 
 My main aim - as per project brief - was to consolidate all that I had been taught over the past few weeks with Java and Android, and gain an understanding on implementing SQLite. I feel that over the course of the project, and by working through various problems, that my understanding has improved, and the goal has largely been met.
 
 ## Moving Forward
-At some pint I would like to revisit this app and include a filter for the list, along with a graph to trend calorie intake.
+At some point I would like to revisit this app and include a filter for the list, along with a graph to trend calorie intake.
