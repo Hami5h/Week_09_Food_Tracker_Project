@@ -103,4 +103,18 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="377dp" />
 
+    <TextView
+        android:id="@+id/Calories"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/Eaten" />
+
 </android.support.constraint.ConstraintLayout>

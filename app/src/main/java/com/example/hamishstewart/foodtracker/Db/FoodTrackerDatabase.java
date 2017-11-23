@@ -23,6 +23,7 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_MEAL_TYPE = "MealType";
     public static final String COLUMN_FOOD_EATEN = "FoodEaten";
     public static final String COLUMN_DATE = "DATE";
+    public static final String COLUMN_CALORIES = "Calories";
 
     public FoodTrackerDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,7 +36,8 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_MEAL_TYPE + " VARCHAR, "
                 + COLUMN_FOOD_EATEN + " VARCHAR, "
-                + COLUMN_DATE + " TEXT );");
+                + COLUMN_DATE + " TEXT, "
+                + COLUMN_CALORIES + " VARCHAR );");
     }
 
     @Override
@@ -44,22 +46,24 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertData(MealType meal, String eaten, String date) {
+    public void insertData(MealType meal, String eaten, String date, String calories) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_MEAL_TYPE, meal.getMeal());
         contentValues.put(COLUMN_FOOD_EATEN, eaten);
         contentValues.put(COLUMN_DATE, date);
+        contentValues.put(COLUMN_CALORIES, calories);
         db.insert(TABLE_NAME, null, contentValues);
         db.close();
     }
 
-    public void updateData(String id, MealType meal, String eaten, String date) {
+    public void updateData(String id, MealType meal, String eaten, String date, String calories) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_MEAL_TYPE, meal.getMeal());
         contentValues.put(COLUMN_FOOD_EATEN, eaten);
         contentValues.put(COLUMN_DATE, date);
+        contentValues.put(COLUMN_CALORIES, calories);
         db.update(TABLE_NAME, contentValues, COLUMN_ID + " = ?", new String[] {id});
         db.close();
     }
@@ -85,8 +89,9 @@ public class FoodTrackerDatabase extends SQLiteOpenHelper {
 
                 String eaten = cursor.getString(2);
                 String date = cursor.getString(3);
+                String calories = cursor.getString(4);
 
-                food = new Food(id, mealType, eaten, date );
+                food = new Food(id, mealType, eaten, date, calories );
                 foods.add(food);
             }
         }

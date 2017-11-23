@@ -11,13 +11,15 @@ public class Food implements Serializable {
     private MealType meal;
     private String eaten;
     private String date;
+    private String calories;
 
 
-    public Food(Integer id, MealType meal, String eaten, String date) {
+    public Food(Integer id, MealType meal, String eaten, String date, String calories) {
         this.id = id;
         this.meal = meal;
         this.eaten = eaten;
         this.date = date;
+        this.calories = calories;
     }
 
     public int getId() {
@@ -36,6 +38,10 @@ public class Food implements Serializable {
         return this.date;
     }
 
+    public String getCalories() {
+        return this.calories;
+    }
+
     public void setMealType(MealType meal) {
         this.meal = meal;
     }
@@ -50,6 +56,10 @@ public class Food implements Serializable {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public void setCalories(String calories) {
+        this.calories = calories;
     }
 
 

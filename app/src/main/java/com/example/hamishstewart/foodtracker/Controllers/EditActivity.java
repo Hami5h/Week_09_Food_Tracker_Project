@@ -73,14 +73,14 @@ public class EditActivity extends AppCompatActivity {
 
     }
 
-    public void onSaveUpdateButtonClicked(View button) {
-        String meal = (String) this.editMealDropdown.getSelectedItem();
-        String food = this.updateFood.getText().toString();
-        String date = this.updateDate.getText().toString();
-
-        myDb.updateData(foodID, MealType.convertToMealType(meal), food, date);
-        finish();
-    }
+//    public void onSaveUpdateButtonClicked(View button) {
+//        String meal = (String) this.editMealDropdown.getSelectedItem();
+//        String food = this.updateFood.getText().toString();
+//        String date = this.updateDate.getText().toString();
+//
+//        myDb.updateData(foodID, MealType.convertToMealType(meal), food, date, calories);
+//        finish();
+//    }
 
 
     public void onDeleteButtonClicked(View button) {

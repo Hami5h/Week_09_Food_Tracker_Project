@@ -45,14 +45,14 @@ public class AddActivity extends AppCompatActivity {
         this.editDate = (EditText) findViewById(R.id.editDate);
     }
 
-    public void onSaveButtonClicked(View button) {
-        String meal = (String) this.mealTypeDropdown.getSelectedItem();
-        String food = this.editFood.getText().toString();
-        String date = this.editDate.getText().toString();
-
-        myDb.insertData(MealType.convertToMealType(meal), food, date);
-        finish();
-    }
+//    public void onSaveButtonClicked(View button) {
+//        String meal = (String) this.mealTypeDropdown.getSelectedItem();
+//        String food = this.editFood.getText().toString();
+//        String date = this.editDate.getText().toString();
+//
+//        myDb.insertData(MealType.convertToMealType(meal), food, date);
+//        finish();
+//    }
 
     DatePickerDialog.OnDateSetListener
             date = new DatePickerDialog.OnDateSetListener() {

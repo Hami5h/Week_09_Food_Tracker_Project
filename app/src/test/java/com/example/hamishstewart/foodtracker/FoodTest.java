@@ -20,7 +20,7 @@ public class FoodTest {
 
     @Before
     public void before() {
-        food = new Food(1, MealType.BREAKFAST, "Cornflakes", "20/11/2017");
+        food = new Food(1, MealType.BREAKFAST, "Cornflakes", "20/11/2017", "289kcal");
         mealType = MealType.BREAKFAST;
     }
 
@@ -52,6 +52,11 @@ public class FoodTest {
     @Test
     public void canGetDate() {
         assertEquals("20/11/2017", food.getDate());
+    }
+
+    @Test
+    public void canGetCalories() {
+        assertEquals("289kcal", food.getCalories());
     }
 
 
