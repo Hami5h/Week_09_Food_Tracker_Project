@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:onClick="onClickFoodType"
+    android:background="#eceff1"
     tools:layout_editor_absoluteY="81dp">
 
     <android.support.constraint.Guideline
@@ -44,7 +45,7 @@
         android:clickable="false"
         android:text="TextView"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +59,7 @@
         android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
@@ -74,7 +75,7 @@
         android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAlignment="viewEnd"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eceff1"
     tools:context="com.example.hamishstewart.foodtracker.Controllers.WelcomeActivity">
 
     <ImageButton
@@ -13,7 +14,7 @@
         android:layout_marginBottom="124dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@android:drawable/menuitem_background"
+        android:background="#eceff1"
         android:onClick="onILoveFoddButtonClicked"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +47,7 @@
         android:layout_marginTop="8dp"
         android:text="Welcome to your new \n Food Tracker App"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageButton"
