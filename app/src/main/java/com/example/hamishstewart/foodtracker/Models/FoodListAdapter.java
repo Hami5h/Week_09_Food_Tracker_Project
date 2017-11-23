@@ -38,7 +38,7 @@ public class FoodListAdapter extends ArrayAdapter<Food> {
         date.setText((currentFoodItem.getDate().toString()));
 
         TextView calories = listItemView.findViewById(R.id.Calories);
-        date.setText((currentFoodItem.getDate().toString()));
+        calories.setText((currentFoodItem.getCalories().toString()));
 
         listItemView.setTag(currentFoodItem);
 

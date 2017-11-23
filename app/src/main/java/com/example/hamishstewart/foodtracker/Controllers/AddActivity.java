@@ -20,8 +20,8 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class AddActivity extends AppCompatActivity {
-    private TextView mealType, foodEaten, dateEaten;
-    private EditText editFood, editDate;
+    private TextView mealType, foodEaten, dateEaten, caloriesEaten;
+    private EditText editFood, editDate, editCalories;
     private Button saveButton;
     FoodTrackerDatabase myDb;
     Spinner mealTypeDropdown;
@@ -41,18 +41,21 @@ public class AddActivity extends AppCompatActivity {
         this.mealType = (TextView) findViewById(R.id.MealType);
         this.foodEaten = (TextView)findViewById(R.id.foodEaten);
         this.dateEaten = (TextView) findViewById(R.id.dateEaten);
+        this.caloriesEaten = (TextView) findViewById(R.id.caloriesEaten);
         this.editFood = (EditText) findViewById(R.id.editFood);
         this.editDate = (EditText) findViewById(R.id.editDate);
+        this.editCalories= (EditText) findViewById(R.id.editCalories);
     }
 
-//    public void onSaveButtonClicked(View button) {
-//        String meal = (String) this.mealTypeDropdown.getSelectedItem();
-//        String food = this.editFood.getText().toString();
-//        String date = this.editDate.getText().toString();
-//
-//        myDb.insertData(MealType.convertToMealType(meal), food, date);
-//        finish();
-//    }
+    public void onSaveButtonClicked(View button) {
+        String meal = (String) this.mealTypeDropdown.getSelectedItem();
+        String food = this.editFood.getText().toString();
+        String date = this.editDate.getText().toString();
+        String calories = this.editCalories.getText().toString();
+
+        myDb.insertData(MealType.convertToMealType(meal), food, date, calories);
+        finish();
+    }
 
     DatePickerDialog.OnDateSetListener
             date = new DatePickerDialog.OnDateSetListener() {

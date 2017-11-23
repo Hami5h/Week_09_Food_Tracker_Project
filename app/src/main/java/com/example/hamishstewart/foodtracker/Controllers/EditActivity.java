@@ -22,8 +22,8 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class EditActivity extends AppCompatActivity {
-    private TextView eMealtype, eFoodEaten, eDateEaten;
-    private EditText updateMeal, updateFood, updateDate;
+    private TextView eMealtype, eFoodEaten, eDateEaten, eCaloriesEaten;
+    private EditText updateMeal, updateFood, updateDate, updateCalories;
     private Button saveUpdateButton;
     private Button deleteButton;
     private String foodID;
@@ -44,6 +44,7 @@ public class EditActivity extends AppCompatActivity {
         this.eDateEaten = (TextView) findViewById(R.id.eDateEaten);
         this.updateFood = (EditText) findViewById(R.id.updateFood);
         this.updateDate = (EditText) findViewById(R.id.updateDate);
+        this.updateCalories= (EditText) findViewById(R.id.updateCalories);
 
         this.editMealDropdown = findViewById(R.id.updateMealSpinner);
         String[] items = new String[]{"Breakfast", "Lunch", "Dinner", "Snack"};
@@ -73,14 +74,15 @@ public class EditActivity extends AppCompatActivity {
 
     }
 
-//    public void onSaveUpdateButtonClicked(View button) {
-//        String meal = (String) this.editMealDropdown.getSelectedItem();
-//        String food = this.updateFood.getText().toString();
-//        String date = this.updateDate.getText().toString();
-//
-//        myDb.updateData(foodID, MealType.convertToMealType(meal), food, date, calories);
-//        finish();
-//    }
+    public void onSaveUpdateButtonClicked(View button) {
+        String meal = (String) this.editMealDropdown.getSelectedItem();
+        String food = this.updateFood.getText().toString();
+        String date = this.updateDate.getText().toString();
+        String calories = this.updateCalories.getText().toString();
+
+        myDb.updateData(foodID, MealType.convertToMealType(meal), food, date, calories);
+        finish();
+    }
 
 
     public void onDeleteButtonClicked(View button) {

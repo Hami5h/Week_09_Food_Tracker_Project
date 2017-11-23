@@ -1,80 +1,60 @@
-# Programming & Web Fundamentals
+# Goal
+Goal: Practice OO and UI design with what we learned in Java / Android weeks.
 
-Over the next week you have the chance to consolidate and expand on everything you have learned:
 
-- Ruby fundamentals
-- TDD (where appropriate)
-- OOP
-- Web Programming ( REST/MVC )
-- Databases with CRUD actions
+## Food Tracker
+You are required to write an Android app that allows a user to track the food they eat.
 
-## MoneyCashboard
-
-You want to start tracking your spending in an attempt to be more frugal with money. You have decided to make a budgeting app to help you see where all of your money is being spent.
-
-You must be able to create new Transactions ( which should include a merchant name, e.g. Tesco, and a value ) which have an associated Tag (e.g. 'food', 'clothes'). Your app would then be able to track a total, and display this in a view.
 
 ### MVP:
+ Users should be able to enter what they eat and when (date/time) and for what meal.
 
-- Create new transactions
-- Display a list of all transactions
-- Display total amount spent
-- Display total amount spent by tag
 
 ### Possible Extensions:
-
-- CRUD actions for the transactions
-- Show a warning when the total expenditure is over budget (set a hard coded budget first)
-- Add a date to the transactions and view total spending by month
-- Any other ideas you might come up with
+The app should show the user a record of what they have eaten over a given period e.g. In March I drank lots of Irn-Bru.
 
 ## My Experience:
-
 Started off by having a group planning session where we captured and discussed viable methods for completing the tasks.
-User needs, class diagrams, and table diagrams were drawn on a whiteboard and we discussed the pros and cons of each suggested solution.
-We ended up agreeing on creating three tables as follows:
-1: Transactions,
-2: Merchants,
-3: Tags.
-Models based on the above tables and associated methods were also agreed.
+User needs, class diagrams, and table diagrams were sketched out and we discussed the pros and cons of each suggested solution.
+We ended up agreeing on creating only one table with 6 columns as follows:
+1: ID,
+2: Breakfast,
+3: Lunch,
+4: Dinner,
+5: Snacks,
+6: Date.
+Only 1 Model for the above table was deemed to be necessary, along with an ENUM for the Meal types.
 
-I started off by creating my directory structure, based on previous classroom and homework exercises. Once done I created my database and created my sql tables.
-Following this I created the models and seeds files.
-I had some problems with seeding the tables which was mostly down to typos.
-By the end of the day I was able to display basic transaction information in my browser.
+The first task was to review and research tutorials on-line for implementing & using SQLite database for Android. This was not covered in previous weeks at CodeClan, but would be required to build a successful app.
+I started off by creating my directory structure, based on previous classroom and homework exercises. I then created my Food model, a Mealtype Enum and tested the getters & setters.
+Once done I started work on the SQLite database and creating the table. During this time I realised that my plan to have separate columns for each meal type was impractical, since when inserting a new row there would be numerous null fields.
+Decided to revisit my plan and decided to have a table as follows:
+1: ID,
+2: Meal Type,
+3: Food Eaten,
+4: Date,
+5: Calories (as an extension if time allowed following MVP attainment).
+This meant that my Food model and tests would have to be refactored, but this wasn't a big issue since I was using an Enum for the meal type anyway. So just some minor tweaks were required, including adding a new parameter for food eaten.
+Following this, I continued working on setting up the Database. I ran into a few problems due to the use of an Enum for the Meal type, and I had to write methods to convert the constants into Strings. I then had to write another method to convert them back again!!
+Eventually, the set-up of the database with all CRUD functions was completed, and I could start work on developing the app.
+I decided that the App should use a list view, which is something we had been shown how to use previously. I encountered an issue where my app was not displaying any information from my database, although information was being saved. With some help from the instructors I managed to make some corrections in the code for the Array Adapter, and everything was fine. I did start going down the route of using a Cursor Adapter instead, but found that this would not provide any meaningful advantage.
+In my list view I wanted it set up so that when a user selected a specific row it would redirect them to an 'edit' screen where they could delete the item, or perform updates. This was trickier than I thought, since I wanted the fields to be auto-populated with the data from the selected item, and I had included a spinner for the meal type. Again, I received some help on this, and once done I managed to meet the MVP.
+Following MVP I then added some bells & whistles including a Calendar for selecting the date and a welcome screen.
 
-I then completed all the CRUD for the transactions model and verified functionality using psql in terminal and pry.
-I then updated the transaction controller with the CRUD functions, and created the necessary forms in the 'erb' files. I had some problems with the transaction update form, since my tag table included an item name and item type, whereas my transaction model only included tag_id for inner joins. It was therefore not possible to update both the item name and the item type from the transaction update form.
-This required me to reformat my tags and transactions tables.
-Following this I eventually managed to create and update transactions.
-I then decided it would be good to auto-populate the form with existing transaction data prior to updating. This caused me some problems when trying to do this for drop down items. I was shown a solution by one of the instructors.
-
-I then created all the CRUD functions for the merchant and tag models. The functionality was then added to their respective controllers. Again, I had some minor hiccups due to typos, but I eventually managed to get all the information displaying and updating successfully in my browser.
 
 ##Setting up
-
-- ‘brew install ruby’
-- ‘gem install sinatra sinatra-contrib’
-- Install Postgres on your machine.
+- Install Android Studio.
 - Clone/Download repository to a destination of your choice.
-- Create dashboard database.
-- Populate the tables/database by running the 'seeds.rb' file in terminal.
-- Run the 'app.rb' file, and open your browser at 'localhost:4567'
+- Open Android Studio and choose the 'open existing project' option.
+- The app can be run from the run menu option and selecting an emulator of your choice.
 
-## Design  
-
+## Design
 The design intent was to keep it as simple as possible and maintain accessibility.
-A simple tabular layout with a comfortable colour scheme was chosen for all the pages.
-A large font size was used where possible, along with row highlighting in the
-tables.
+A simple list view layout with a comfortable colour scheme was chosen throughout. A spinner was used for populating the meal type field in order to limit the options, and prevent typing errors. Similarly, the Calendar pop-up was used for the date selection.
 
 ## Outcome
-The MVP was achieved, and a basic hard coded budget limit included. I therefore
-achieved what I set out to do in this respect, but would've liked a bit more time to include additional features.
-My main aim - as per project brief - was to consolidate all that I had been taught over the past few weeks, and gain a better understanding of Ruby and Databases. I feel that
-over the course of the project, and by working through various problems, that my understanding has improved, and the goal has largely been met.
+The MVP was achieved, with basic functionality. I therefore achieved what I set out to do in this respect, but would've liked a bit more time to include additional features.
+My main aim - as per project brief - was to consolidate all that I had been taught over the past few weeks with Java and Android, and gain an understanding on implementing SQLite. I feel that over the course of the project, and by working through various problems, that my understanding has improved, and the goal has largely been met.
 
 ## Moving Forward
-
-At some point, I would like to revisit this app and add a user table, which would allow for it to be personalised. E.g. This could include a user name and password functionality.
-I would also like to revisit the extensions which I didn't have time to complete, and set a date for each transaction.
+At some pint I would like to revisit this app and include a filter for the list, along with a graph to trend calorie intake.

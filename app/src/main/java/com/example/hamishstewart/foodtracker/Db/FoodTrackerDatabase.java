@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 
 public class FoodTrackerDatabase extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "FoodTracker.db";
     public static final String TABLE_NAME = "FOOD";
     public static final String COLUMN_ID = "ID";
